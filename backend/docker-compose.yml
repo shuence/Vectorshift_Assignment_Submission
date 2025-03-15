@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_DB=0
+      - HUBSPOT_CLIENT_ID=${HUBSPOT_CLIENT_ID}
+      - HUBSPOT_CLIENT_SECRET=${HUBSPOT_CLIENT_SECRET}
+      - HUBSPOT_REDIRECT_URI=${HUBSPOT_REDIRECT_URI}
+      - AIRTABLE_CLIENT_ID=${AIRTABLE_CLIENT_ID}
+      - AIRTABLE_CLIENT_SECRET=${AIRTABLE_CLIENT_SECRET}
+      - AIRTABLE_REDIRECT_URI=${AIRTABLE_REDIRECT_URI}
+      - AIRTABLE_SCOPE=${AIRTABLE_SCOPE}
+      - NOTION_CLIENT_ID=${NOTION_CLIENT_ID}
+      - NOTION_CLIENT_SECRET=${NOTION_CLIENT_SECRET}
+      - NOTION_REDIRECT_URI=${NOTION_REDIRECT_URI}
+      - CACHE_EXPIRY=${CACHE_EXPIRY:-600}
+    env_file:
+      - .env
+    depends_on:
+      - redis
+    volumes:
+      - ./:/app
+
+  redis:
+    image: redis:6.2-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+
+volumes:
+  redis-data:

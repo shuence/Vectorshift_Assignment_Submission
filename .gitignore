@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+venv/
+ENV/
+
+# Node.js / React
+
+\frontend\node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+/frontend/build
+/frontend/coverage
+/frontend/.env.local
+/frontend/.env.development.local
+/frontend/.env.test.local
+/frontend/.env.production.local
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Redis
+*.rdb
+dump.rdb
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Project specific
+/backend/credentials.json
+/backend/token.json
+frontend/node_modules/.bin/acorn
