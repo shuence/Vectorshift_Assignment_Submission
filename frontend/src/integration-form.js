@@ -43,7 +43,7 @@ export const IntegrationForm = ({ onIntegrationSuccess }) => {
     );
     const [user, setUser] = useState("TestUser");
     const [org, setOrg] = useState("TestOrg");
-    const [currType, setCurrType] = useState(localStorage.getItem("currType") || null);
+    const [currType, setCurrType] = useState(localStorage.getItem("currType") || "hubspot");
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
     const [alertSeverity, setAlertSeverity] = useState('info');
